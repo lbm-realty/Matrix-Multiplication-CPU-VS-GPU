@@ -47,7 +47,7 @@ void allocating_data(float *h_a, float *h_b, float *h_c, int N) {
 
   float milliseconds = 0;
   cudaEventElapsedTime(&milliseconds, start, stop);
-  printf("GPU Time: %f ms\n", milliseconds / 1000);
+  printf("%f", milliseconds);
 
 /*
   for (int i = 0; i < N; i++) {
@@ -60,8 +60,15 @@ void allocating_data(float *h_a, float *h_b, float *h_c, int N) {
 
 }
 
-int main() {
-  int N = 1024;
+int main(int argc, char **argv) {
+
+  if (argc != 2) {
+    printf("Usage: %s <matrix_size>\n", argv[0]);
+    return -1;
+  }
+
+  int N = atoi(argv[1]);
+
   float *mat_a, *mat_b, *mat_c;
 
   // Allocating memory for the matrices

@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <chrono>
 
-int main() {
-  int N = 1024;
+int main(int argc, char **argv) {
+
+  if (argc != 2) {
+    printf("Usage: %s <matrix_size>\n", argv[0]);
+    return -1;
+  }
+
+  int N = atoi(argv[1]);
   float *mat_a, *mat_b, *mat_c;
 
   // Allocating memory for the matrices
@@ -34,7 +40,7 @@ int main() {
   auto end = std::chrono::high_resolution_clock::now();
 
   std::chrono::duration<float, std::milli> duration = end - start;
-  printf("CPU Time: %.2f ms\n", duration.count() / 1000);
+  printf("%.2f", duration.count());
 
  /*
   for (int i = 0; i < N; i++) {
