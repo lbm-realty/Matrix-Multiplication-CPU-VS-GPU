@@ -4,22 +4,22 @@ A high-performance comparison between sequential CPU execution and parallelized 
 
 ## 🚀 The Result
 After correcting for initial timing unit mismatches (CPU seconds vs. GPU milliseconds), the results were definitive:
-* [cite_start]**Up to 1000x Speedup** on matrix sizes of $1024 \times 1024$ and larger.
-* [cite_start]**Efficiency at Scale:** While the CPU is competitive for tiny matrices due to low overhead, the GPU scales exponentially better as the workload increases.
+* **Up to 1000x Speedup** on matrix sizes of $1024 \times 1024$ and larger.
+* **Efficiency at Scale:** While the CPU is competitive for tiny matrices due to low overhead, the GPU scales exponentially better as the workload increases.
 
 ## 🧠 Project Overview
 Matrix multiplication is the backbone of modern AI and Graphics. This project explores the "Naive" implementation of the algorithm to establish a baseline for hardware performance.
 
 ### Core Objectives:
-* [cite_start]**Parallelization:** Offloading nested-loop computations from a single-threaded CPU to thousands of concurrent GPU threads.
-* [cite_start]**Performance Analysis:** Benchmarking execution time across varying matrix dimensions ($N$).
+* **Parallelization:** Offloading nested-loop computations from a single-threaded CPU to thousands of concurrent GPU threads.
+* **Performance Analysis:** Benchmarking execution time across varying matrix dimensions ($N$).
 * **Unit Rigor:** Ensuring precise measurement by accounting for host-to-device data transfer times and proper time-unit synchronization.
 
 ## 🛠️ Tech Stack
-* [cite_start]**Language:** C 
-* [cite_start]**Parallel Computing:** NVIDIA CUDA 
-* [cite_start]**Hardware Tested:** NVIDIA T4 GPU 
-* [cite_start]**Tools:** `nvcc` compiler, `std::chrono` for high-resolution timing.
+* **Language:** C 
+* **Parallel Computing:** NVIDIA CUDA 
+* **Hardware Tested:** NVIDIA T4 GPU 
+* **Tools:** `nvcc` compiler, `std::chrono` for high-resolution timing.
 
 ## 📊 Benchmarks
 The following table highlights the execution time gap as the matrix size ($N \times N$) grows:
@@ -37,13 +37,12 @@ The following table highlights the execution time gap as the matrix size ($N \ti
 1. **Clone the repo:**
    ```bash
    git clone [https://github.com/lbm-realty/Matrix-Multiplication-CPU-VS-GPU.git](https://github.com/lbm-realty/Matrix-Multiplication-CPU-VS-GPU.git)
-   Compile the CUDA code:
    ```
+2. **Compile the CUDA code:**
     ```bash
     nvcc -o matmul matrix_mul.cu
     ```
-2. **Execute:**
-
+3. **Execute:**
   ```bash
   ./matmul
   ```
